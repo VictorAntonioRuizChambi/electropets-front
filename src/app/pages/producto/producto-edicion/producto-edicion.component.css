@@ -1,0 +1,8 @@
+.producto-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .producto-container > * {
+    width: 100%;
+  }

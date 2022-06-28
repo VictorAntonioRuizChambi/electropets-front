@@ -1,0 +1,140 @@
+  
+
+  ::ng-deep .mat-sort-header-container {
+    justify-content: center;
+  }
+
+  .codPresentacionColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 15%;
+  }
+
+  .mat-column-codPresentacion {
+    justify-content: center;
+    text-align: left;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 15%;
+    font-size: 10px;
+  }
+
+  .descripcionColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 28%;
+  }
+
+  .mat-column-descripcion {
+    justify-content: center;
+    text-align: left;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 28%;
+    padding-left: 15px;
+    font-size: 10px;
+  }
+
+  .unidadMedidaColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 10%;
+  }
+
+  .mat-column-unidadMedida {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 10%;
+    font-size: 10px;
+  }
+
+  .precioCostoColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+  }
+
+  .mat-column-precioCosto {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+    font-size: 10px;
+  }
+
+  .precioVentaMaxColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+  }
+
+  .mat-column-precioVentaMaxima {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+    font-size: 10px;
+  }
+
+  .precioVentaMinColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+  }
+
+  .mat-column-precioVentaMinima {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+    font-size: 10px;
+  }
+
+  .stockColumnHeader {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+  }
+
+  .mat-column-stock {
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-width: max-content;
+    display: inline-block;
+    min-width: 8%;
+    font-size: 10px;
+  }
+

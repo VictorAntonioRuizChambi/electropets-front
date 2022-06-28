@@ -1,0 +1,12 @@
+.venta-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .venta-container>* {
+    width: 100%;
+  }
+  
+  .venta-spacer {
+    flex: 1 1 auto;
+  }

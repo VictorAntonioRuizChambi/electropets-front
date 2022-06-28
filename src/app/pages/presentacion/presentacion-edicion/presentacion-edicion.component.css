@@ -1,0 +1,8 @@
+.presentacion-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .presentacion-container > * {
+    width: 100%;
+  }

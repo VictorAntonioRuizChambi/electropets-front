@@ -1,0 +1,33 @@
+<form class="producto-container" [formGroup]="form" (ngSubmit)="operar()" #frmProducto="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="producto-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="producto-full-width">
+        <input matInput placeholder="Código" required formControlName="codigo">
+    </mat-form-field>
+    
+    <mat-form-field class="producto-full-width">
+        <input matInput placeholder="Rubro" required formControlName="rubro">
+    </mat-form-field>
+      
+    <mat-form-field class="producto-full-width">
+        <input matInput placeholder="Sección" required formControlName="seccion">
+    </mat-form-field>
+
+    <mat-form-field class="producto-full-width">
+        <input matInput placeholder="Descripción" required formControlName="descripcion">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmProducto.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/pages/producto' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>

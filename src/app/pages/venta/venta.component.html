@@ -1,0 +1,95 @@
+<mat-toolbar>Ventas</mat-toolbar>
+
+<form [formGroup]="form" (ngSubmit)="buscar()">
+    <mat-tab-group #tab>
+        <mat-tab label="Criterio 1">
+            <mat-form-field>
+                <input matInput placeholder="Razón Social" formControlName="razonSocial">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Número de Documento" formControlName="numDocumento">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Nombre Completo" formControlName="nombreCompleto">
+            </mat-form-field>
+        </mat-tab>
+
+        <mat-tab label="Criterio 2">
+            <mat-form-field appearance="fill">
+                <mat-label>Rango de Fechas</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Inicio" formControlName="fechaConsulta1">
+                    <input matEndDate placeholder="Fin" formControlName="fechaConsulta2">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+        </mat-tab>
+    </mat-tab-group>
+
+    <button mat-raised-button color="primary" type="submit">Buscar</button>
+
+    <mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="cliente">
+            <mat-header-cell *matHeaderCellDef> Cliente </mat-header-cell>
+            
+            <mat-cell *matCellDef="let element"> 
+                <div *ngIf="element.cliente.razonSocial !== null && element.cliente.razonSocial !== ''; else nameCondition">{{element.cliente.razonSocial | uppercase}}</div>
+                <ng-template #nameCondition>
+                    {{element.cliente.nombre1 | titlecase}} 
+                    {{element.cliente.nombre2 | titlecase}} 
+                    {{element.cliente.nombre3 | titlecase}} 
+                    {{element.cliente.apePaterno | titlecase}} 
+                    {{element.cliente.apeMaterno | titlecase}}
+                </ng-template>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="codComprobante">
+            <mat-header-cell *matHeaderCellDef> Comprobante </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.codComprobante}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcion">
+            <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.descripcion}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+            <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.total | number:'1.2-2'}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="utilidad">
+            <mat-header-cell *matHeaderCellDef> Utilidad </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.utilidad | number:'1.2-2'}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha">
+            <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fecha | date:'dd-MM-yyyy hh:mm:ss a'}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button type="button" mat-raised-button color="primary" (click)="verDetalle(element)">Ver
+                    Detalle</button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+
+</form>
+
+<button mat-fab color="primary" style="float: right; margin-right: 20px" (click)="nuevaVenta()">
+    <mat-icon>create</mat-icon>
+  </button>

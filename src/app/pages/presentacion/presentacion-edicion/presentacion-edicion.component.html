@@ -1,0 +1,52 @@
+<form class="presentacion-container" [formGroup]="form" (ngSubmit)="operar()" #frmPresentacion="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="presentacion-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="presentacion-full-width">
+        <input [readonly]="true" matInput placeholder="Código del Producto" required formControlName="codigo">
+    </mat-form-field>
+
+    <mat-form-field class="presentacion-full-width">
+        <input matInput placeholder="Descripción" required formControlName="descripcion">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Unidad de Medida" [(value)]="unidadMedidaSeleccionada"
+            (selectionChange)="seleccionarUnidadMedida($event)">
+            <mat-option *ngFor="let e of unidadesDeMedida" [value]="e">{{e.etiquetaParametro }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="presentacion-full-width">
+        <input matInput placeholder="Precio Costo" required formControlName="precioCosto" appTwoDigitDecimaNumber>
+    </mat-form-field>
+
+    <mat-form-field class="presentacion-full-width">
+        <input matInput placeholder="Precio Venta Mínimo" required formControlName="precioVentaMin" appTwoDigitDecimaNumber>
+    </mat-form-field>
+
+    <mat-form-field class="presentacion-full-width">
+        <input matInput placeholder="Precio Venta" required formControlName="precioVenta" appTwoDigitDecimaNumber>
+    </mat-form-field>
+
+    <mat-form-field class="presentacion-full-width">
+        <input matInput placeholder="Stock Actual" required formControlName="stockActual" appThreeDigitDecimaNumber>
+    </mat-form-field>
+
+    <mat-form-field class="presentacion-full-width">
+        <input matInput placeholder="Stock Mínimo" required formControlName="stockMinimo" appThreeDigitDecimaNumber>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmPresentacion.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" (click)="cancelar()" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>
